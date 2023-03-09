@@ -4,50 +4,111 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Console.log</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/terminal.css">
     <link rel="stylesheet" href="css/terminal-1.css">
     <link rel="stylesheet" href="css/terminal-2.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-grid-min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
 </head>
 <body>
-    <div id="content">
-        <div id="utama" class="hidden">
-            ini halaman index
+    <header class="terminal-logo">
+        <div class="logo terminal-prompt"><b style="font-size: 20px;">Console<b style="color:yellow">.log</b></b></div>
+      </header>
 
-            <button id="add">+</button>
-            <button id="remove">-</button>
-            <button id="update">update</button>
-        </div>
+    <div class="div-btn" id="div-btn">
+        <button class="btn-primary btn" id="btn-add"><span class="fa fa-plus"></span></button>
+        <button class="btn-default btn" id="btn-update"><span class="fa fa-recycle"></span></button>
+        <button class="btn-error btn" id="btn-delete"><span class="fa fa-trash"></span></button>
+    </div>
 
-        <div id="div-" class="hidden">
-            ini halaman index
+<!-- div add -->
+    <div class="content div-input hidden" id="div-add" style="z-index: 100;">
+        <label for="" >Input Console Name</label>
+        <input type="text" placeholder="Name" id="input-name-add" class="form-add">
+        <br><br>
+        <label for="" >Year</label>
+        <input type="text" placeholder="Year" id="input-year-add" class="form-add">
+        <br><br>
+        <label for="">Description</label>
+        <textarea placeholder="Description" id="input-desc-add" class="form-add" rows="10">
 
-            <button id="add">+</button>
-            <button id="remove">-</button>
-            <button id="update">update</button>
-        </div>
+        </textarea>
+        <br><br>
+        <label for="">URL</label>
+        <input type="text" placeholder="Image URL" id="input-img-add">
 
-        <div id="div-update" class="hidden">
-            ini halaman index
-
-            <button id="add">+</button>
-            <button id="remove">-</button>
-            <button id="update">update</button>
-        </div>
-
-        <div id="div-delete" class="hidden">
-            ini halaman index
-
-            <button id="add">+</button>
-            <button id="remove">-</button>
-            <button id="update">update</button>
+        <div id="parent-button">
+            <button class="btn btn-primary" id="button-Fadd">Add</button>
+            &nbsp;
+            <button class="btn btn-error" id="button-cancel-add">Cancel</button>
         </div>
     </div>
+<!-- end of div add -->
+
+    <div class="content div-input hidden" id="div-update" style="z-index: 100;">
+       
+        <label for="cars">Pilihan Console:</label>
+        <br>
+        <select name="cars" id="select-update">
+          <option value="volvo">Atari 2600</option>
+          <option value="saab">Nintendo</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br><br>
+
+
+        <label for="" >Input Console Name</label>
+        <input type="text" placeholder="Name" id="input-name-update" class="form-add">
+        <br><br>
+        <label for="" >Year</label>
+        <input type="text" placeholder="Year" id="input-year-update" class="form-add">
+        <br><br>
+        <label for="">Description</label>
+        <textarea placeholder="Description" id="input-desc-update" class="form-add" rows="10">
+
+        </textarea>
+        <br><br>
+
+
+        <div id="parent-button">
+            <button class="btn btn-primary" id="button-Fupdate">Update</button>
+            &nbsp;
+            <button class="btn btn-error" id="button-cancel-update">Cancel</button>
+        </div>
+
+    </div>
+<!-- end of div update -->
+
+
+<!-- start of divdelete  -->
+    <div class="content div-input hidden" id="div-delete" style="z-index: 100;">
+        
+        <label for="cars">Pilihan Console:</label>
+        <br>
+        <select name="cars" id="option-delete">
+          <!-- isi dengan dom -->
+        </select>
+        <br><br>
+        <div id="parent-button">
+            <button class="btn btn-primary" id="button-Fdelete">Delete</button>
+            &nbsp;
+            <button class="btn btn-error" id="button-cancel-delete">Cancel</button>
+        </div>
+
+
+    </div>
+<!-- end of div delete -->
+
+   <section id="section">
+   </section>
     
 
-    <script src="js/index.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

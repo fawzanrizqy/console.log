@@ -14,92 +14,84 @@
     <link rel="stylesheet" href="css/bootstrap-grid-min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <title>Document</title>
+
+<style>
+    .modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.6rem 3rem;
+  border: 3px solid black;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.message {
+    color:black;
+  font-size:1.1rem;
+  margin-bottom: 1.6rem;
+  margin-top: 0;
+}
+.btn-md {
+  color:black;
+    font-family:inherit;
+  font-size: inherit;
+  background: white;
+  padding: 0.3rem 3.4rem;
+  border: 3px solid black;
+  margin-right: 2.6rem;
+  box-shadow: 0 0 0 black;
+  transition: all 0.2s;
+}
+
+.btn-md:last-child {
+  margin: 0;
+}
+
+.btn-md:hover {
+  box-shadow: 0.4rem 0.4rem 0 black;
+  transform: translate(-0.4rem, -0.4rem);
+}
+
+.btn-md:active {
+  box-shadow: 0 0 0 black;
+  transform: translate(0, 0);
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+</style>
+
+
+
 </head>
 
 <body>
-    <div class="div-btn">
-    <button class="btn-primary btn" id="btn-add"><span class="fa fa-plus"></span></button>
-    <button class="btn-default btn" id="btn-update"><span class="fa fa-recycle"></span></button>
-    <button class="btn-error btn" id="btn-delete"><span class="fa fa-trash"></span></button>
+   
+
+    
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div class="modal">
+    <p class="message">Mohon Lengkapi Data Anda</p>
+    <div class="options">
+      <button class="btn-md">Ok</button>
+  
     </div>
+  </div>
 
-
-    <div class="content div-input hidden" id="div-add" style="z-index: 100;">
-        <label for="" >Input Console Name</label>
-        <input type="text" placeholder="Name" id="input-name" class="form-add">
-        <br><br>
-        <label for="" >Year</label>
-        <input type="text" placeholder="Year" id="input-year" class="form-add">
-        <br><br>
-        <label for="">Description</label>
-        <textarea placeholder="Description" id="input-desc" class="form-add" rows="10">
-
-        </textarea>
-        <br><br>
-        <label for="">URL</label>
-        <input type="text" placeholder="Image URL" id="input-img">
-
-        <div id="parent-button">
-            <button class="btn btn-primary" id="button-create">Add</button>
-            <button class="btn btn-error" id="button-cancel">Cancel</button>
-        </div>
-    </div>
-<!-- div add -->
-
-    <div class="content div-input hidden" id="div-update" style="z-index: 100;">
-       
-        <label for="cars">Pilihan Console:</label>
-        <br>
-        <select name="cars" id="cars">
-          <option value="volvo">Atari 2600</option>
-          <option value="saab">Nintendo</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
-        <br><br>
-
-
-        <label for="" >Input Console Name</label>
-        <input type="text" placeholder="Name" id="input-name" class="form-add">
-        <br><br>
-        <label for="" >Year</label>
-        <input type="text" placeholder="Year" id="input-year" class="form-add">
-        <br><br>
-        <label for="">Description</label>
-        <textarea placeholder="Description" id="input-desc" class="form-add" rows="10">
-
-        </textarea>
-        <br><br>
-
-
-        <div id="parent-button">
-            <button class="btn btn-primary" id="button-update">Update</button>
-            <button class="btn btn-error" id="button-cancel">Cancel</button>
-        </div>
-
-    </div>
-<!-- end of div update -->
-
-    <div class="content div-input hidden" id="div-delete" style="z-index: 100;">
-        
-        <label for="cars">Pilihan Console:</label>
-        <br>
-        <select name="cars" id="cars">
-          <option value="volvo">Atari 2600</option>
-          <option value="saab">Nintendo</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
-        <br><br>
-        <div id="parent-button">
-            <button class="btn btn-primary" id="button-update">Update</button>
-            <button class="btn btn-error" id="button-cancel">Cancel</button>
-        </div>
-
-
-    </div>
-<!-- end of div delete -->
-    <div class="timeline">
+    <!-- <div class="timeline">
 
         <div class="container-cr left-container">
             <img class="gambarKiri" src="https://www.shutterstock.com/image-vector/retro-vintage-video-game-atari-600w-1890416116.jpg">
@@ -223,54 +215,35 @@
                 <span class="left-container-arrow"></span>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <script>
-        let btnAdd = document.getElementById("btn-add");
-        let btnUp = document.getElementById("btn-update");
-        let btnDel = document.getElementById("btn-delete");
-        let divAdd = document.getElementById("div-add");
-        let divUp = document.getElementById("div-update");
-        let divDel = document.getElementById("div-delete");
+        // Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-        //click
-        btnAdd.addEventListener("click", function(e){
-            divAdd.classList.toggle("hidden");
-        })
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
-        btnUp.addEventListener("click", function(e){
-            divUp.classList.toggle("hidden");
-        })
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-        btnDel.addEventListener("click", function(e){
-            divDel.classList.toggle("hidden");
-        })
-
-
-        //hover
-        btnAdd.addEventListener("mouseenter", function(e){
-            btnAdd.classList.toggle("btn-ghost");
-        })
-        btnAdd.addEventListener("mouseleave", function(e){
-            btnAdd.classList.toggle("btn-ghost");
-        })
-
-        btnUp.addEventListener("mouseenter", function(e){
-            btnUp.classList.toggle("btn-ghost");
-        })
-        btnUp.addEventListener("mouseleave", function(e){
-            btnUp.classList.toggle("btn-ghost");
-        })
-
-        btnDel.addEventListener("mouseenter", function(e){
-            btnDel.classList.toggle("btn-ghost");
-        })
-        btnDel.addEventListener("mouseleave", function(e){
-            btnDel.classList.toggle("btn-ghost");
-        })
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
     </script>
 </body>
 

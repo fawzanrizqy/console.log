@@ -19,5 +19,5 @@ klik.addEventListener("click", function(e){
 })
 
 function pindah() {
-    window.location.href = "testing.html";
+    window.location.href = "index.html";
 }

@@ -50,7 +50,7 @@ body {
     }
 
 .div-btn {
-    position:absolute; right: 10px; top: 10px;
+    position:absolute; right: 10px; top: 10px; z-index: 99;
 }
 
 .main-title {
@@ -114,7 +114,22 @@ body {
 }
 
 
-#button-create {
+.hide {
+  animation-name: fadeOut;
+  animation-duration: 3s;
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+
+#button-Fadd {
     background-color: white;
    
     border-color: white;
@@ -127,7 +142,50 @@ body {
   
   }
   
-  #button-cancel {
+  #button-Fdelete {
+    background-color: white;
+    border-color: white;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  
+  }
+
+  #button-Fdelete:hover {
+    background: #62c4ff;
+    color:white;
+  }
+
+  #button-cancel-delete {
+    background-color: black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left : 10px;
+    border-color: #e7e7e7;
+    color: white;
+  }
+
+  #button-cancel-update {
+    background-color: black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left : 10px;
+    border-color: #e7e7e7;
+    color: white;
+  }
+
+  #button-cancel-add {
     background-color: black;
     color: white;
     padding: 15px 32px;
@@ -140,12 +198,22 @@ body {
     color: white;
   }
   
-  #button-cancel:hover {
+  #button-cancel-add:hover {
+    background: #ff3c74;
+    color:black;
+  }
+
+  #button-cancel-update:hover {
+    background: #ff3c74;
+    color:black;
+  }
+
+  #button-cancel-delete:hover {
     background: #ff3c74;
     color:black;
   }
   
-  #button-create:hover {
+  #button-Fadd:hover {
     background: #62c4ff;
     color:white;
   }
@@ -158,7 +226,7 @@ body {
     padding-top : 20px;
   }
 
-  #button-update {
+  #button-Fupdate {
     background-color: white;
 
     border-color: white;
@@ -170,7 +238,7 @@ body {
     font-size: 16px;
   }
 
-  #button-update:hover {
+  #button-Fupdate:hover {
     background: #62c4ff;
     color:white;
   }
