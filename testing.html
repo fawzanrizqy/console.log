@@ -47,13 +47,58 @@
 <!-- div add -->
 
     <div class="content div-input hidden" id="div-update" style="z-index: 100;">
-        <input type="text" placeholder="testing">
+       
+        <label for="cars">Pilihan Console:</label>
+        <br>
+        <select name="cars" id="cars">
+          <option value="volvo">Atari 2600</option>
+          <option value="saab">Nintendo</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br><br>
+
+
+        <label for="" >Input Console Name</label>
+        <input type="text" placeholder="Name" id="input-name" class="form-add">
+        <br><br>
+        <label for="" >Year</label>
+        <input type="text" placeholder="Year" id="input-year" class="form-add">
+        <br><br>
+        <label for="">Description</label>
+        <textarea placeholder="Description" id="input-desc" class="form-add" rows="10">
+
+        </textarea>
+        <br><br>
+
+
+        <div id="parent-button">
+            <button class="btn btn-primary" id="button-update">Update</button>
+            <button class="btn btn-error" id="button-cancel">Cancel</button>
+        </div>
+
     </div>
-<!-- div update -->
+<!-- end of div update -->
+
     <div class="content div-input hidden" id="div-delete" style="z-index: 100;">
-        <input type="text" placeholder="testing">
+        
+        <label for="cars">Pilihan Console:</label>
+        <br>
+        <select name="cars" id="cars">
+          <option value="volvo">Atari 2600</option>
+          <option value="saab">Nintendo</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br><br>
+        <div id="parent-button">
+            <button class="btn btn-primary" id="button-update">Update</button>
+            <button class="btn btn-error" id="button-cancel">Cancel</button>
+        </div>
+
+
     </div>
-<!-- div delete -->
+<!-- end of div delete -->
     <div class="timeline">
 
         <div class="container-cr left-container">
