@@ -154,3 +154,21 @@
     border-right: 15px solid #828284;
     left: -15px;
 }
+.gambarKanan{
+
+    border-radius: 50%;
+    height: 40px;
+    width: 100px;
+    background-color: white;
+    position:absolute;
+
+}
+.gambarKiri{
+    
+    border-radius: 50%;
+    height: 40px;
+    width: 100px;
+    background-color: white;
+    position: absolute;
+
+}
