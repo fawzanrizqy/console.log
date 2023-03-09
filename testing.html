@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="div-btn">
+    <div class="div-btn" id="div-btn">
     <button class="btn-primary btn" id="btn-add"><span class="fa fa-plus"></span></button>
     <button class="btn-default btn" id="btn-update"><span class="fa fa-recycle"></span></button>
     <button class="btn-error btn" id="btn-delete"><span class="fa fa-trash"></span></button>
@@ -26,34 +26,75 @@
 
     <div class="content div-input hidden" id="div-add" style="z-index: 100;">
         <label for="" >Input Console Name</label>
-        <input type="text" placeholder="Name" id="input-name" class="form-add">
+        <input type="text" placeholder="Name" id="input-name-add" class="form-add">
         <br><br>
         <label for="" >Year</label>
-        <input type="text" placeholder="Year" id="input-year" class="form-add">
+        <input type="text" placeholder="Year" id="input-year-add" class="form-add">
         <br><br>
         <label for="">Description</label>
-        <textarea placeholder="Description" id="input-desc" class="form-add" rows="10">
+        <textarea placeholder="Description" id="input-desc-add" class="form-add" rows="10">
 
         </textarea>
         <br><br>
         <label for="">URL</label>
-        <input type="text" placeholder="Image URL" id="input-img">
+        <input type="text" placeholder="Image URL" id="input-img-add">
 
         <div id="parent-button">
-            <button class="btn btn-primary" id="button-create">Add</button>
-            <button class="btn btn-error" id="button-cancel">Cancel</button>
+            <button class="btn btn-primary" id="button-Fadd">Add</button>
+            <button class="btn btn-error" id="button-cancel-add">Cancel</button>
         </div>
     </div>
 <!-- div add -->
 
     <div class="content div-input hidden" id="div-update" style="z-index: 100;">
-        <input type="text" placeholder="testing">
+       
+        <label for="cars">Pilihan Console:</label>
+        <br>
+        <select name="cars" id="select-update">
+          <!-- dom -->
+        </select>
+        <br><br>
+
+
+        <label for="" >Input Console Name</label>
+        <input type="text" placeholder="Name" id="input-name-update" class="form-add">
+        <br><br>
+        <label for="" >Year</label>
+        <input type="text" placeholder="Year" id="input-year-update" class="form-add">
+        <br><br>
+        <label for="">Description</label>
+        <textarea placeholder="Description" id="input-desc-update" class="form-add" rows="10">
+
+        </textarea>
+        <br><br>
+
+
+        <div id="parent-button">
+            <button class="btn btn-primary" id="button-Fupdate">Update</button>
+            <button class="btn btn-error" id="button-cancel-update">Cancel</button>
+        </div>
+
     </div>
-<!-- div update -->
+<!-- end of div update -->
+
+
+<!-- start of divdelete  -->
     <div class="content div-input hidden" id="div-delete" style="z-index: 100;">
-        <input type="text" placeholder="testing">
+        
+        <label for="cars">Pilihan Console:</label>
+        <br>
+        <select name="cars" id="option-delete">
+          <!-- isi dengan dom -->
+        </select>
+        <br><br>
+        <div id="parent-button">
+            <button class="btn btn-primary" id="button-Fdelete">Delete</button>
+            <button class="btn btn-error" id="button-cancel-delete">Cancel</button>
+        </div>
+
+
     </div>
-<!-- div delete -->
+<!-- end of div delete -->
     <div class="timeline">
 
         <div class="container-cr left-container">
@@ -179,54 +220,11 @@
             </div>
         </div>
     </div>
+    <script src="js/index.js"></script>
+    <script src="js/index2.js"></script> <!-- Punya ojan  -->
 
-
-    <script>
-        let btnAdd = document.getElementById("btn-add");
-        let btnUp = document.getElementById("btn-update");
-        let btnDel = document.getElementById("btn-delete");
-        let divAdd = document.getElementById("div-add");
-        let divUp = document.getElementById("div-update");
-        let divDel = document.getElementById("div-delete");
-
-
-
-        //click
-        btnAdd.addEventListener("click", function(e){
-            divAdd.classList.toggle("hidden");
-        })
-
-        btnUp.addEventListener("click", function(e){
-            divUp.classList.toggle("hidden");
-        })
-
-        btnDel.addEventListener("click", function(e){
-            divDel.classList.toggle("hidden");
-        })
-
-
-        //hover
-        btnAdd.addEventListener("mouseenter", function(e){
-            btnAdd.classList.toggle("btn-ghost");
-        })
-        btnAdd.addEventListener("mouseleave", function(e){
-            btnAdd.classList.toggle("btn-ghost");
-        })
-
-        btnUp.addEventListener("mouseenter", function(e){
-            btnUp.classList.toggle("btn-ghost");
-        })
-        btnUp.addEventListener("mouseleave", function(e){
-            btnUp.classList.toggle("btn-ghost");
-        })
-
-        btnDel.addEventListener("mouseenter", function(e){
-            btnDel.classList.toggle("btn-ghost");
-        })
-        btnDel.addEventListener("mouseleave", function(e){
-            btnDel.classList.toggle("btn-ghost");
-        })
-    </script>
+    
+    
 </body>
 
 </html>
