@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/terminal.css">
     <link rel="stylesheet" href="css/terminal-1.css">
     <link rel="stylesheet" href="css/terminal-2.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-grid-min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -22,7 +23,7 @@
 
     <div class="div-btn" id="div-btn">
         <button class="btn-primary btn" id="btn-add"><span class="fa fa-plus"></span></button>
-        <button class="btn-default btn" id="btn-update"><span class="fa fa-recycle"></span></button>
+        <button class="btn-default btn" id="btn-update"><span class="fa fa-refresh"></span></button>
         <button class="btn-error btn" id="btn-delete"><span class="fa fa-trash"></span></button>
     </div>
 
@@ -52,7 +53,7 @@
 
     <div class="content div-input hidden" id="div-update" style="z-index: 100;">
        
-        <label for="cars">Pilihan Console:</label>
+        <label for="cars">Console Name Options</label>
         <br>
         <select name="cars" id="select-update">
           <option value="volvo">Atari 2600</option>
@@ -89,7 +90,7 @@
 <!-- start of divdelete  -->
     <div class="content div-input hidden" id="div-delete" style="z-index: 100;">
         
-        <label for="cars">Pilihan Console:</label>
+        <label for="cars">Console Name Options</label>
         <br>
         <select name="cars" id="option-delete">
           <!-- isi dengan dom -->
@@ -108,6 +109,13 @@
    <section id="section">
    </section>
     
+   <!--div modal validasi-->
+   <div class="modal" id="myModal">
+    <p class="message">PLEASE CHECK YOUR INPUTS</p>
+    <div class="options">
+      <button class="btn-md" id="myBtnModal">Ok</button>
+    </div>
+  </div>
 
 <script src="js/index.js"></script>
 </body>

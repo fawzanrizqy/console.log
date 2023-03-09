@@ -73,12 +73,50 @@ let database=[
 
 ];
 
+////FUNCTION SHOW AND HIDE MODAL
+let modal = document.getElementById("myModal");
+var btnM = document.getElementById("myBtnModal");
+
+
+  btnM.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
 /////RENDER AWAL
+
+    function sortdata(database)
+    {
+        for(let i =0; i<database.length; i++)
+        {
+            if(i != database.length-1)
+            {
+                if(Number(database[i]["released"]) > Number(database[i+1]["released"]))
+                {
+                    let temp = database[i+1];                
+                    database[i+1] = database[i];
+                    database[i] = temp;
+                    i = -1;
+                }
+            }
+        }
+        return database;
+    }
+
+// target=”_blank” href=”https://www.google.com/search?q=Google+tutorial+create+link”>
 
     function render() {
     let section = document.getElementById("section");
     let divtimeline = document.createElement('div');
     divtimeline.classList.add("timeline");
+    
+    database = sortdata(database);
 
     for(let i=0; i< database.length;i++)
     {
@@ -91,7 +129,8 @@ let database=[
             let divp = document.createElement('div');
             let small = document.createElement('small');
             let para = document.createElement('p');
-            
+            let a = document.createElement("a");
+
             if(i%2==0)
         {
             divcontainer.classList.add("container-cr","left-container");
@@ -106,10 +145,14 @@ let database=[
             
             divterminal.classList.add("terminal-card");
             gambar.setAttribute("src", `${database[i]["url"]}`);
-            h2.innerText = `${database[i]["name"]}`;
+            a.setAttribute("target","_blank");
+            a.setAttribute("href", `https://www.google.com/search?q=${database[i]["name"].replace(" ","+")}`)
+            a.innerText = `${database[i]["name"]}`;
+            a.style.color = "black";
             small.innerText = `${database[i]["released"]}`;
             para.innerText = `${database[i]["description"]}`;
 
+            h2.append(a);
             header.append(h2);
             divterminal.append(header);
             divterminal.append(divp);
@@ -150,14 +193,11 @@ function removeblue()
 {
     blue.remove();
 }
-/////RENDER AWAL//////////////////////////////////////////////////////////////////////////////////////
-
-
+/////////////////////////BATAS RENDER AWAL///////////////////////////////////////////////////////////
 
 //buat update
 let inputidupdate = document.getElementById("select-update");//select option\
-
-
+let inputiddelete = document.getElementById("option-delete");//select option\
 
 
 
@@ -169,35 +209,6 @@ for (const elm of database) { //generate data
     option.innerText = elm.name;
     inputidupdate.append(option);
 }
-
-
-
-let btnCadd = document.getElementById("button-cancel-add");
-let btnCupdate = document.getElementById("button-cancel-update");
-let btnCdelete = document.getElementById("button-cancel-delete");
-
-
-//BUTTON CANCEL 
-btnCadd.addEventListener("click", function(e){
-    divAdd.classList.add("hidden");
-    divBtn.classList.remove("hidden");
-})
-
-btnCupdate.addEventListener("click", function(e){
-    divUp.classList.add("hidden");
-    divBtn.classList.remove("hidden");
-})
-
-btnCdelete.addEventListener("click", function(e){
-    divDel.classList.add("hidden");
-    divBtn.classList.remove("hidden");
-})
-
-
-//buat update
-
-let inputiddelete = document.getElementById("option-delete");//select option\
-
 
 
 //buat delete
@@ -236,12 +247,13 @@ let btnFadd = document.getElementById("button-Fadd");
 let btnFupdate = document.getElementById("button-Fupdate");
 let btnFdelete = document.getElementById("button-Fdelete");
 
-// buat add
+//INISIASI ADD DATA
 let inputnama = document.getElementById("input-name-add");
 let inputtahun = document.getElementById("input-year-add");
 let inputdesc = document.getElementById("input-desc-add");
 let inputimg = document.getElementById("input-img-add");
 
+//FUNCTION ADD
 function adddata() {
     let nama = inputnama.value;
     let tahun = inputtahun.value;
@@ -254,8 +266,6 @@ function adddata() {
             max=elm.id;
         }
     }
-
-
 
     database.push(
         {
@@ -270,26 +280,47 @@ function adddata() {
     console.log(database);
 }
 
+//EVENT LISTENER CLICK ADD
 btnFadd.addEventListener("click", function (e) {
+    
+    if(inputnama.value === "" || inputtahun.value === "" || inputdesc.value === "" || inputimg.value === "")
+    {
+        modal.style.display = "inline-flex";
+    }
+    else
+    {
     adddata();
     divAdd.classList.toggle("hidden");
     section.innerHTML = ""
     divBtn.classList.remove("hidden");
     render();
+    }
 })
 
+
+
+//INISIASI INPUT UPDATE
 let inputnamaupdate = document.getElementById("input-name-update");
 let inputtahunupdate = document.getElementById("input-year-update");
 let inputdescupdate = document.getElementById("input-desc-update");
 let inputimgupdate = document.getElementById("input-img-update");
 
+
+//FUNCTION UPDATE
 btnFupdate.addEventListener("click", function (e) {
-    console.log("test");
+    
     let id=inputidupdate.value;
     let nama = inputnamaupdate.value;
     let tahun = inputtahunupdate.value;
     let desc = inputdescupdate.value;
 
+
+    if(inputnamaupdate.value === "" || inputtahunupdate.value === "" || inputdescupdate.value === "" || inputidupdate.value === "asd")
+    {
+        modal.style.display = "inline-flex";
+    }//if data kosong
+    else
+    {
     for (const elm of database) {
         if (elm.id==id) {
             elm.name=nama;
@@ -302,9 +333,12 @@ btnFupdate.addEventListener("click", function (e) {
     divUp.classList.add("hidden");
     divBtn.classList.remove("hidden");
     render();
+    }//ELSE
 
 })
 
+
+//FUNCTION DELETE
 function fdelete() {
    let id= inputiddelete.value;
 
@@ -318,13 +352,22 @@ function fdelete() {
 }
 
 btnFdelete.addEventListener("click", function (e) {
-fdelete();
-section.innerHTML = "";
+    if( inputiddelete.value === "asd")
+    {
+        modal.style.display = "inline-flex";
+    }//if data kosong
+    else
+    {
+    fdelete();
+    section.innerHTML = "";
     divDel.classList.add("hidden");
     divBtn.classList.remove("hidden");
     render();
+    }
 })
 
+
+//auto fill ketika ganti option di select update
 inputidupdate.addEventListener("change", function(e){
     
     let obj = {};
@@ -346,8 +389,39 @@ inputidupdate.addEventListener("change", function(e){
 })
 
 
-////////INTERAKSI
+////////INTERAKSI/////////////////////
 
+
+//BUTTON CANCEL 
+let btnCadd = document.getElementById("button-cancel-add");
+let btnCupdate = document.getElementById("button-cancel-update");
+let btnCdelete = document.getElementById("button-cancel-delete");
+
+
+
+btnCadd.addEventListener("click", function(e){
+    divAdd.classList.add("hidden");
+    divBtn.classList.remove("hidden");
+    modal.style.display = "none";
+})
+
+btnCupdate.addEventListener("click", function(e){
+    divUp.classList.add("hidden");
+    divBtn.classList.remove("hidden");
+    modal.style.display = "none";
+
+    inputnamaupdate.value = "";
+    inputtahunupdate.value = "";
+    inputdescupdate.value = "";
+})
+
+btnCdelete.addEventListener("click", function(e){
+    divDel.classList.add("hidden");
+    divBtn.classList.remove("hidden");
+    modal.style.display = "none";
+})
+
+//INISIASI BUTTON ADD UPDATE DELETE
         let btnAdd = document.getElementById("btn-add");
         let btnUp = document.getElementById("btn-update");
         let btnDel = document.getElementById("btn-delete");

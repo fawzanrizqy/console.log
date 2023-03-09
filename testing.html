@@ -16,13 +16,13 @@
     <title>Document</title>
 
 <style>
-    .modal {
-  position: absolute;
+.modal {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: auto;
-  display: inline-flex;
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
   flex-direction: column;
   align-items: center;
   padding: 1.6rem 3rem;
@@ -30,6 +30,7 @@
   border-radius: 5px;
   background: white;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+  
 }
 .message {
     color:black;
@@ -83,10 +84,10 @@
 <button id="myBtn">Open Modal</button>
 
 <!-- The Modal -->
-<div class="modal">
+<div class="modal" id="myModal">
     <p class="message">Mohon Lengkapi Data Anda</p>
     <div class="options">
-      <button class="btn-md">Ok</button>
+      <button class="btn-md" id="myBtnModal">Ok</button>
   
     </div>
   </div>
@@ -220,21 +221,22 @@
 
     <script>
         // Get the modal
-var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
+var btnm = document.getElementById("myBtnModal");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  modal.style.display = "block";
+  modal.style.display = "inline-flex";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+btnm.onclick = function() {
   modal.style.display = "none";
 }
 
