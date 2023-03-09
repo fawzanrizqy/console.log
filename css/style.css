@@ -35,8 +35,8 @@ body {
 
 .div-input{
     background-color: rgba(0, 0, 0, 0.726);
-    width: 25%;
-    height: 400px;
+    width: 50%;
+    max-height: 600px;
     border-radius: 10px;
     padding: 20px 80px;
 }
@@ -49,7 +49,9 @@ body {
     transform: translate(-50%, -50%);
     }
 
-
+.div-btn {
+    position:absolute; right: 10px; top: 10px;
+}
 
 .main-title {
     color: white;
@@ -110,3 +112,48 @@ body {
         border-color:rgb(100, 141, 237);
     }
 }
+
+
+#button-create {
+    background-color: white;
+   
+    border-color: white;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  
+  }
+  
+  #button-cancel {
+    background-color: black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left : 10px;
+    border-color: #e7e7e7;
+    color: white;
+  }
+  
+  #button-cancel:hover {
+    background: #ff3c74;
+    color:black;
+  }
+  
+  #button-create:hover {
+    background: #62c4ff;
+    color:white;
+  }
+  
+  #parent-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+    padding-top : 20px;
+  }

@@ -102,7 +102,7 @@
 .timeline::after {
     content: '';
     position: absolute;
-    width: 20px;
+    width: 5px;
     height: 100%;
     background: #828284;
     top: 0;
@@ -153,4 +153,23 @@
     border-bottom: 15px solid transparent;
     border-right: 15px solid #828284;
     left: -15px;
+}
+
+.gambarKanan{
+
+    border-radius: 50%;
+    height: 40px;
+    width: 300px;
+    background-color: white;
+    position:absolute;
+
+}
+.gambarKiri{
+
+    border-radius: 50%;
+    height: 40px;
+    width: 300px;
+    background-color: white;
+    position: absolute;
+
 }
