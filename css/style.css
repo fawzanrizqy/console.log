@@ -157,3 +157,22 @@ body {
     /* background-color: red; */
     padding-top : 20px;
   }
+
+  #button-update {
+    background-color: white;
+   
+    border-color: white;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  #button-update:hover {
+    background: #62c4ff;
+    color:white;
+  }
+
+  
