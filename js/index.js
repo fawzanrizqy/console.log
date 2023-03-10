@@ -293,6 +293,10 @@ btnFadd.addEventListener("click", function (e) {
     divAdd.classList.toggle("hidden");
     section.innerHTML = ""
     divBtn.classList.remove("hidden");
+    inputnama.value = "" 
+    inputtahun.value = "" 
+    inputdesc.value = "" 
+    inputimg.value = ""
     render();
     }
 })
